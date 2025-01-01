@@ -12,7 +12,7 @@ class Episode:
         #defined here
         self.download_url = ""
         self.name = ""
-        
+
         #defined in the download function
         self.size = None
         self.stream = None
@@ -34,7 +34,7 @@ class Episode:
 
         self.download_url = urljoin(
                 base_url,
-                soup_download_page.find('a',class_='btn btn-primary p-2', download=True).get("href"))
+                soup_download_page.find('a', attrs={"class": ["btn", "btn-primary"]}, download=True).get("href"))
         self.name = os.path.basename(self.download_url)
 
     def download(self):
